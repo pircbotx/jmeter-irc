@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.jmeter.engine.event.LoopIterationEvent;
 import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
@@ -196,7 +196,7 @@ public class IrcBotSampler extends AbstractSampler implements TestListener, Comp
 			log.debug("Exception encountered when executing Sample", ex);
 			res.setResponseCode("500");
 			res.setResponseMessage(ex.toString());
-			res.setResponseData("ERROR IN SAMPLING: " + ExceptionUtils.getFullStackTrace(ex), null);
+			res.setResponseData("ERROR IN SAMPLING: " + ExceptionUtils.getStackTrace(ex), null);
 			res.setDataType(SampleResult.TEXT);
 		}
 		return res;
